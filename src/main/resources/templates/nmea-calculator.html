@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>calculation</title>
+</head>
+<body>
+
+Форма для строк:
+<form th:method="POST" th:action="@{/from_line}">
+    <textarea name="lines" rows="10" cols="50"></textarea>
+    <br>
+    <button type="submit">Рассчитать пройденный путь</button>
+</form>
+
+<br>
+
+Форма для файла:
+<form method="POST" th:action="@{/from_file}" enctype="multipart/form-data">
+    <input type="file" name="file"/>
+    <br>
+    <br>
+    <button type="submit">загрузить</button>
+</form>
+<br>
+
+<hr>
+Пройденное расстояние:
+<div th:if="${result}">
+    <p th:text="${result}+' метров'"></p>
+</div>
+
+
+</body>
+</html>
